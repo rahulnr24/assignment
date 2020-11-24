@@ -21,3 +21,17 @@ class EmployeeListView(LoginRequiredMixin, ListView):
     template_name ="employee/list_employee.html"
     context_object_name="employees"
     queryset = Employee.objects.all()
+
+
+class EmployeeDeleteView(LoginRequiredMixin, DeleteView):
+    template_name ="employee/delete_employee.html"
+    queryset = Employee.objects.all()
+    success_url = reverse_lazy('list-employee')
+
+
+class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
+    template_name ="employee/add_employee.html"
+    model = Employee
+    fields ="__all__"
+    queryset = Employee.objects.all()
+    success_url = reverse_lazy('list-employee')

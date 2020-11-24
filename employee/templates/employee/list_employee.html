@@ -12,7 +12,8 @@
 
         {% for employee in employees %}
 
-        <div class="col-lg-4">
+        
+        <div class="col-lg-4 mb-2">
             <div class="card" style="width: 18rem;">
                 <img src={{employee.image.url}} width="150px" height="250px" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -29,6 +30,10 @@
                     {{employee.pincode}} 
 
                    </div>
+
+                   <a href="{% url 'delete-employee' employee.pk %}" class="btn btn-danger">Delete</a>
+                   <a href="{% url 'update-employee' employee.pk %}" class="btn btn-primary">Update</a>
+
 
                 </div>
             </div>
